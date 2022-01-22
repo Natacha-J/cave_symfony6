@@ -15,4 +15,28 @@ class MainController extends AbstractController
             'controller_name' => 'MainController',
         ]);
     }
+
+    #[Route('/references', name: 'references')]
+    public function references(): Response
+    {
+        return $this->render('main/references.html.twig', [
+            'controller_name' => 'MainController',
+        ]);
+    }
+
+    #[Route('/accords-mets-vins', name: 'food_wine_pairings')]
+    public function foodWinePairings(): Response
+    {
+        return $this->render('main/food_wine_pairings.html.twig', [
+            'controller_name' => 'MainController',
+        ]);
+    }
+
+    #[Route('/stocks', name: 'inventory')]
+    public function inventory(): Response
+    {
+        return $this->render('main/inventory.html.twig', [
+            'controller_name' => 'MainController',
+        ]);
+    }
 }
