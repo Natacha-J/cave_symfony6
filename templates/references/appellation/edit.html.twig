@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification appellation{% endblock %}
+
+{% block body %}
+    <h1>Modification de l'appellation {{ appellation.codeAppellation }}</h1>
+
+{{ include('references/appellation/_form.html.twig', {'button_label': 'Update'}) }}
+    <a href="{{ path('appellation_index') }}">Retour</a>
+
+{{ include('references/appellation/_delete_form.html.twig') }}
+
+{% endblock %}

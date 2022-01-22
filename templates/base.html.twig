@@ -1,19 +1,34 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
-</html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}{% endblock %}
+		</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"> {% block stylesheets %}{% endblock %}
+		<link rel="stylesheet" href="{{ asset('css/style.css') }}"> {% block javascripts %}{% endblock %}
+		</head>
+		<body>
+			<div class="container">
+				<nav>
+					<a class="home" href="{{ path('home') }}">HOME</a>
+					<div>
+						<a href="{{ path('vin_index') }}">Les vins</a>
+						<a href="{{ path('references') }}">Les références</a>
+						<div hidden>
+							<a href="{{ path('appellation_index') }}">Appellation</a>
+							<a href="{{ path('cepage_index') }}">Cepage</a>
+							<a href="{{ path('couleur_index') }}">Couleur</a>
+							<a href="{{ path('millesime_index') }}">Millesime</a>
+							<a href="{{ path('pays_index') }}">Pays</a>
+							<a href="{{ path('region_index') }}">Région</a>
+						</div>
+						<a href="{{ path('accords_mets_vins') }}">Les accords mets/vins</a>
+						<a href="#">Les stocks</a>
+					</div>
+				</nav>
+				<div class="content"> {% block body %}{% endblock %}
+					</div>
+				</div>
+			</body>
+		</html>

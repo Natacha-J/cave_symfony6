@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('cepage_delete', {'codecepage': cepage.codecepage}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ cepage.codecepage) }}">
+    <button class="btn">Delete</button>
+</form>

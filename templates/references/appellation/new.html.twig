@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle appellation{% endblock %}
+
+{% block body %}
+    <h1>Création d'une appellation</h1>
+
+    {{ include('references/appellation/_form.html.twig') }}
+
+    <a href="{{ path('appellation_index') }}">Retour</a>
+{% endblock %}

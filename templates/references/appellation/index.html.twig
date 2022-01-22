@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Appellations{% endblock %}
+
+{% block body %}
+    <h1>Listes des appellations</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for appellation in appellations %}
+            <tr>
+                <td>{{ appellation.codeappellation }}</td>
+                <td>{{ appellation.nomappellation }}</td>
+                <td>
+                    <a href="{{ path('appellation_edit', {'codeappellation': appellation.codeappellation}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Pas de résultats</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('appellation_new') }}">Ajouter une appellation</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau cépage{% endblock %}
+
+{% block body %}
+    <h1>Création d'un cépage</h1>
+
+{{ include('references/cepage/_form.html.twig') }}
+
+
+    <a href="{{ path('cepage_index') }}">Retour</a>
+{% endblock %}

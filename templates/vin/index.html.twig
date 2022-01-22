@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les vins{% endblock %}
+
+{% block body %}
+    <h1>Liste des vins</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Cuvée</th>
+                <th>Appellation</th>
+                <th>Région</th>
+                <th>Couleur</th>
+                <th>Type de culture</th>
+                <th>Commentaires</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vin in vins %}
+            <tr>
+                <td>{{ vin.codevin }}</td>
+                <td>{{ vin.nomCuvee }}</td>
+                <td>{{ vin.codeAppellation.nomAppellation}}</td>
+                <td>{{ vin.codeRegion.nomRegion}}</td>
+                <td>{{ vin.codeCouleur.nomCouleur}}</td>
+                <td>{{ vin.typeDeCulture }}</td>
+                <td>{{ vin.commentaires }}</td>
+                <td>
+                    <a href="{{ path('vin_edit', {'codevin': vin.codevin}) }}">edit</a>
+                    {{ include('vin/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Pas de résultat</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('vin_new') }}">Ajouter un noveau vin</a>
+{% endblock %}

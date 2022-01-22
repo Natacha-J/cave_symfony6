@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification millésime{% endblock %}
+
+{% block body %}
+    <h1>Modification du millésime {{ millesime.codemillesime }}</h1>
+
+{{ include('references/millesime/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+    <a href="{{ path('millesime_index') }}">Retour</a>
+
+{{ include('references/millesime/_delete_form.html.twig') }}
+
+{% endblock %}

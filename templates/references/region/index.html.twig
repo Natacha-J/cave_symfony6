@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Régions{% endblock %}
+
+{% block body %}
+	<h1>Liste des régions</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Code</th>
+				<th>Nom</th>
+				<th>Pays</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for region in regions %}
+				<tr>
+					<td>{{ region.coderegion }}</td>
+					<td>{{ region.nomregion }}</td>
+					<td>{{ region.codepays.nompays }}</td>
+					<td>
+						<a href="{{ path('region_edit', {'coderegion': region.coderegion}) }}">
+							<i class="fas fa-edit"></i>
+						</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="3">Pas de résultats</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('region_new') }}">Ajouter une région</a>
+{% endblock %}

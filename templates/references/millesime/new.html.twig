@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau millésime{% endblock %}
+
+{% block body %}
+    <h1>Création d'un millésime</h1>
+
+{{ include('references/millesime/_form.html.twig') }}
+
+
+    <a href="{{ path('millesime_index') }}">Retour</a>
+{% endblock %}

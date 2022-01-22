@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification région{% endblock %}
+
+{% block body %}
+    <h1>Modification de la région {{ region.codeRegion }}</h1>
+
+{{ include('references/region/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+    <a href="{{ path('region_index') }}">Retour</a>
+
+{{ include('references/region/_delete_form.html.twig') }}
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification cépage{% endblock %}
+
+{% block body %}
+    <h1>Modification du cépage {{ cepage.codeCepage }}</h1>
+
+{{ include('references/cepage/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+    <a href="{{ path('cepage_index') }}">Retour</a>
+
+{{ include('references/cepage/_delete_form.html.twig') }}
+
+{% endblock %}

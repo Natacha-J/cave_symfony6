@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pays{% endblock %}
+
+{% block body %}
+    <h1>Liste des pays</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pays in lesPays %}
+            <tr>
+                <td>{{ pays.codepays }}</td>
+                <td>{{ pays.nompays }}</td>
+                <td>
+                    <a href="{{ path('pays_edit', {'codepays': pays.codepays}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Pas de résultats</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('pays_new') }}">Ajouter un pays</a>
+{% endblock %}

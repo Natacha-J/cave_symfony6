@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification couleur{% endblock %}
+
+{% block body %}
+    <h1>Modification de la couleur {{ couleur.codecouleur }}</h1>
+
+{{ include('references/couleur/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+    <a href="{{ path('couleur_index') }}">Retour</a>
+
+{{ include('references/couleur/_delete_form.html.twig') }}
+
+{% endblock %}

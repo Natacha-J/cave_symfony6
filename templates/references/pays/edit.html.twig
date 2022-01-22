@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification pays{% endblock %}
+
+{% block body %}
+    <h1>Modification du pays {{ pays.codepays }}</h1>
+
+    {{ include('references/pays/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('pays_index') }}">Retour</a>
+
+    {{ include('references/pays/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les références{% endblock %}
+
+{% block body %}
+    <a href="{{ path('appellation_index') }}">Appellation</a>
+    <a href="{{ path('cepage_index') }}">Cepage</a>
+    <a href="{{ path('couleur_index') }}">Couleur</a>
+    <a href="{{ path('millesime_index') }}">Millesime</a>
+    <a href="{{ path('pays_index') }}">Pays</a>
+    <a href="{{ path('region_index') }}">Région</a>
+{% endblock %}
