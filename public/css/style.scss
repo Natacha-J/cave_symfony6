@@ -7,14 +7,14 @@ body{
 .container {
     display: flex;
     flex-direction: row;
-    border: 1px solid red;
     height: 100vh;
     nav{
         background-color: rgb(14, 14, 75) ;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        align-items: center;
+        align-items:flex-start;
+        padding-left: 0.7rem;
         .home{
             color: rgb(109, 138, 65);
             margin: 2rem;
@@ -23,8 +23,14 @@ body{
             color: antiquewhite;
             text-decoration: none;
         }
-        div{
-            margin-top: 2rem;
+        .headMenu:hover + .subMenu{
+            visibility: visible;
+            height: max-content;
+        }
+        .subMenu{
+            visibility: hidden;
+            height: 0vh;
+            margin: 0.5rem 1rem;
             display: flex;
             flex-direction: column;
         }
@@ -34,6 +40,7 @@ body{
         color: rgb(14, 14, 75);
         text-align: center;
         border: 1px solid black;
+
         table {
             background-color: grey;
             border: 1px solid black;

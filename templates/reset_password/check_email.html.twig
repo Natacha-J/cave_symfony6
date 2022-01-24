@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}E-mail envoyé{% endblock %}
+
+{% block body %}
+    <p>
+    Vous allez recevoir un e-mail contenant un lien pour réinitialiser votre mot de passe.<br>
+    Ce lien expire dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+    </p>
+{% endblock %}
