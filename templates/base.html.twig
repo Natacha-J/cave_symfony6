@@ -12,10 +12,9 @@
 			<div class="container">
 				<nav>
 					<a class="home" href="{{ path('home') }}">HOME</a>
-					<div>
-						<a href="{{ path('vin_index') }}">Les vins</a>
-						<a href="{{ path('references') }}">Les références</a>
-						<div hidden>
+						<a href="{{ path('vin_index') }}">Les vins</a><br>
+						<a class="headMenu" href="{{ path('references') }}">Les références</a>
+						<div class="subMenu">
 							<a href="{{ path('appellation_index') }}">Appellation</a>
 							<a href="{{ path('cepage_index') }}">Cepage</a>
 							<a href="{{ path('couleur_index') }}">Couleur</a>
@@ -25,7 +24,6 @@
 						</div>
 						<a href="{{ path('food_wine_pairings') }}">Les accords mets/vins</a>
 						<a href="{{ path('inventory') }}">Les stocks</a>
-					</div>
 				</nav>
 				<div class="content"> {% block body %}{% endblock %}
 					</div>

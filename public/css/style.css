@@ -8,7 +8,6 @@ body {
 .container {
   display: flex;
   flex-direction: row;
-  border: 1px solid red;
   height: 100vh;
 }
 .container nav {
@@ -16,7 +15,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
+  padding-left: 0.7rem;
 }
 .container nav .home {
   color: #6d8a41;
@@ -26,8 +26,16 @@ body {
   color: antiquewhite;
   text-decoration: none;
 }
-.container nav div {
-  margin-top: 2rem;
+.container nav .headMenu:hover + .subMenu {
+  visibility: visible;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+.container nav .subMenu {
+  visibility: hidden;
+  height: 0vh;
+  margin: 0.5rem 1rem;
   display: flex;
   flex-direction: column;
 }
