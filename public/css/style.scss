@@ -23,14 +23,14 @@ body{
             color: antiquewhite;
             text-decoration: none;
         }
-        .headMenu:hover + .subMenu{
+/*         .headMenu:hover + .subMenu{
             visibility: visible;
             height: max-content;
         }
-        .subMenu{
-            visibility: hidden;
-            height: 0vh;
-            margin: 0.5rem 1rem;
+ */        .subMenu{
+/*            visibility: hidden;
+             height: 0vh;
+ */            margin: 0.5rem 1rem;
             display: flex;
             flex-direction: column;
         }
@@ -47,6 +47,11 @@ body{
             border-collapse: collapse;
             tr {
                 border: 1px solid black;
+            }
+            .btn-suppr {
+                background-color: transparent;
+                color: rgb(185, 45, 45);
+                border: none;
             }
         }
     }

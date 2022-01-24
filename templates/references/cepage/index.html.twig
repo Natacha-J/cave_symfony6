@@ -1,34 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cépages{% endblock %}
+{% block title %}Cépages
+{% endblock %}
 
 {% block body %}
-    <h1>Liste des cépages</h1>
+	<h1>Liste des cépages</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Code</th>
-                <th>Nom</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for cepage in cepages %}
-            <tr>
-                <td>{{ cepage.codecepage }}</td>
-                <td>{{ cepage.nomcepage }}</td>
-                <td>
-                    <a href="{{ path('cepage_edit', {'codecepage': cepage.codecepage}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">Pas de résultats</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Code</th>
+				<th>Nom</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for cepage in cepages %}
+				<tr>
+					<td>{{ cepage.codecepage }}</td>
+					<td>{{ cepage.nomcepage }}</td>
+					<td>
+						<a href="{{ path('cepage_edit', {'codecepage': cepage.codecepage}) }}"><i class="fas fa-pen"></i></a>
+					</td>
+					<td>
+						{{ include('references/cepage/_delete_form.html.twig') }}
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="3">Pas de résultats</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 
-    <a href="{{ path('cepage_new') }}">Ajouter un cépage</a>
+	<a href="{{ path('cepage_new') }}">Ajouter un cépage</a>
 {% endblock %}

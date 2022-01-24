@@ -20,9 +20,15 @@ class VinController extends AbstractController
             ->getRepository(Vin::class)
             ->findAll();
 
-        return $this->render('vin/index.html.twig', [
-            'vins' => $vins,
-        ]);
+        //vérification de l'authentification pour accéder au site
+        $user = $this->getUser();
+        if (!$user) {
+            return $this->redirectToRoute('app_login');
+        } else {
+            return $this->render('vin/index.html.twig', [
+                'vins' => $vins,
+            ]);
+        }
     }
 
     #[Route('/new', name: 'vin_new', methods: ['GET', 'POST'])]
@@ -74,7 +80,7 @@ class VinController extends AbstractController
     #[Route('/{codevin}', name: 'vin_delete', methods: ['POST'])]
     public function delete(Request $request, Vin $vin, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$vin->getCodevin(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $vin->getCodevin(), $request->request->get('_token'))) {
             $entityManager->remove($vin);
             $entityManager->flush();
         }

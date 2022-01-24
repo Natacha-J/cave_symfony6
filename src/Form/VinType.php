@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Vin;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,6 +20,7 @@ class VinType extends AbstractType
             ->add('codeappellation')
             ->add('coderegion')
             ->add('codecepage')
+            ->add('valider', SubmitType::class)
         ;
     }
 

@@ -17,6 +17,11 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
   padding-left: 0.7rem;
+  /*         .headMenu:hover + .subMenu{
+              visibility: visible;
+              height: max-content;
+          }
+   */
 }
 .container nav .home {
   color: #6d8a41;
@@ -26,15 +31,10 @@ body {
   color: antiquewhite;
   text-decoration: none;
 }
-.container nav .headMenu:hover + .subMenu {
-  visibility: visible;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-}
 .container nav .subMenu {
-  visibility: hidden;
-  height: 0vh;
+  /*            visibility: hidden;
+               height: 0vh;
+   */
   margin: 0.5rem 1rem;
   display: flex;
   flex-direction: column;
@@ -52,4 +52,9 @@ body {
 }
 .container .content table tr {
   border: 1px solid black;
+}
+.container .content table .btn-suppr {
+  background-color: transparent;
+  color: #b92d2d;
+  border: none;
 }/*# sourceMappingURL=style.css.map */

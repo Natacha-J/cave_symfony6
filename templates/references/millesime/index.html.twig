@@ -1,34 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Millésimes{% endblock %}
+{% block title %}Millésimes
+{% endblock %}
 
 {% block body %}
-    <h1>Liste des millésimes</h1>
+	<h1>Liste des millésimes</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Code</th>
-                <th>Millésime</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for millesime in millesimes %}
-            <tr>
-                <td>{{ millesime.codemillesime }}</td>
-                <td>{{ millesime.millesime }}</td>
-                <td>
-                    <a href="{{ path('millesime_edit', {'codemillesime': millesime.codemillesime}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">Page de résultats</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Code</th>
+				<th>Millésime</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for millesime in millesimes %}
+				<tr>
+					<td>{{ millesime.codemillesime }}</td>
+					<td>{{ millesime.millesime }}</td>
+					<td>
+						<a href="{{ path('millesime_edit', {'codemillesime': millesime.codemillesime}) }}"><i class="fas fa-pen"></i></a>
+					</td>
+					<td>	
+						{{ include('references/millesime/_delete_form.html.twig') }}
+					</td>
 
-    <a href="{{ path('millesime_new') }}">Ajouter un millésime</a>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="3">Page de résultats</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('millesime_new') }}">Ajouter un millésime</a>
 {% endblock %}

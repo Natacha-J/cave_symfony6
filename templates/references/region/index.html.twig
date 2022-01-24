@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Régions{% endblock %}
+{% block title %}Régions
+{% endblock %}
 
 {% block body %}
 	<h1>Liste des régions</h1>
@@ -21,10 +22,12 @@
 					<td>{{ region.nomregion }}</td>
 					<td>{{ region.codepays.nompays }}</td>
 					<td>
-						<a href="{{ path('region_edit', {'coderegion': region.coderegion}) }}">
-							<i class="fas fa-edit"></i>
-						</a>
+						<a href="{{ path('region_edit', {'coderegion': region.coderegion}) }}"><i class="fas fa-pen"></i></a>
 					</td>
+					<td>
+						{{ include('references/region/_delete_form.html.twig') }}
+					</td>
+
 				</tr>
 			{% else %}
 				<tr>

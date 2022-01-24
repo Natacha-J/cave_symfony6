@@ -15,7 +15,7 @@
                 <th>Couleur</th>
                 <th>Type de culture</th>
                 <th>Commentaires</th>
-                <th>actions</th>
+                <th colspan="2">actions</th>
             </tr>
         </thead>
         <tbody>
@@ -29,7 +29,9 @@
                 <td>{{ vin.typeDeCulture }}</td>
                 <td>{{ vin.commentaires }}</td>
                 <td>
-                    <a href="{{ path('vin_edit', {'codevin': vin.codevin}) }}">edit</a>
+                    <a href="{{ path('vin_edit', {'codevin': vin.codevin}) }}"><i class="fas fa-pen"></i></a>
+                </td>
+                <td>
                     {{ include('vin/_delete_form.html.twig') }}
                 </td>
             </tr>

@@ -55,7 +55,7 @@ class Region
         return $this;
     }
 
-    public function getCodepays(): ?Pays
+    public function getCodepays()
     {
         return $this->codepays;
     }

@@ -1,34 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Couleurs{% endblock %}
+{% block title %}Couleurs
+{% endblock %}
 
 {% block body %}
-    <h1>Liste des couleurs</h1>
+	<h1>Liste des couleurs</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Code</th>
-                <th>Nom</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for couleur in couleurs %}
-            <tr>
-                <td>{{ couleur.codecouleur }}</td>
-                <td>{{ couleur.nomcouleur }}</td>
-                <td>
-                    <a href="{{ path('couleur_edit', {'codecouleur': couleur.codecouleur}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">Pas de résultats</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Code</th>
+				<th>Nom</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for couleur in couleurs %}
+				<tr>
+					<td>{{ couleur.codecouleur }}</td>
+					<td>{{ couleur.nomcouleur }}</td>
+					<td>
+						<a href="{{ path('couleur_edit', {'codecouleur': couleur.codecouleur}) }}"><i class="fas fa-pen"></i></a>
+					</td>
+					<td>	
+						{{ include('references/couleur/_delete_form.html.twig') }}
+					</td>
 
-    <a href="{{ path('couleur_new') }}">Ajouter une couleur</a>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="3">Pas de résultats</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('couleur_new') }}">Ajouter une couleur</a>
 {% endblock %}
