@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\referencesControllers;
 
 use App\Entity\Couleur;
 use App\Form\CouleurType;

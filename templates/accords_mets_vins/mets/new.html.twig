@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau mets{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un mets</h1>
+
+{{ include('accords_mets_vins/mets/_form.html.twig') }}
+
+    <a href="{{ path('mets_index') }}">Retour</a>
+{% endblock %}

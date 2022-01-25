@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mets index{% endblock %}
+
+{% block body %}
+    <h1>Mets index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Codemets</th>
+                <th>Nom</th>
+                <th>LienRecette</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for met in mets %}
+            <tr>
+                <td>{{ met.codemets }}</td>
+                <td>{{ met.nom }}</td>
+                <td>{{ met.lienRecette }}</td>
+                <td>
+                    <a href="{{ path('mets_show', {'codemets': met.codemets}) }}">show</a>
+                    <a href="{{ path('mets_edit', {'codemets': met.codemets}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('mets_new') }}">Create new</a>
+{% endblock %}

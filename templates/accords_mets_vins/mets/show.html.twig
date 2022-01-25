@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mets{% endblock %}
+
+{% block body %}
+    <h1>Mets {{ met.codemets }}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Code : </th>
+                <td>{{ met.codemets }}</td>
+            </tr>
+            <tr>
+                <th>Nom : </th>
+                <td>{{ met.nom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse de la recette : </th>
+                <td>{{ met.lienRecette }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('mets_index') }}">Retour</a>
+
+{% endblock %}
