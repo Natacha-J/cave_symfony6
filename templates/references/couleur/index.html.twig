@@ -6,6 +6,7 @@
 {% block body %}
 	<h1>Liste des couleurs</h1>
 
+	<a href="{{ path('couleur_new') }}">Ajouter une couleur</a>
 	<table class="table">
 		<thead>
 			<tr>
@@ -35,5 +36,4 @@
 		</tbody>
 	</table>
 
-	<a href="{{ path('couleur_new') }}">Ajouter une couleur</a>
 {% endblock %}

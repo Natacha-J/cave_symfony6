@@ -6,6 +6,7 @@
 {% block body %}
 	<h1>Liste des pays</h1>
 
+	<a href="{{ path('pays_new') }}">Ajouter un pays</a>
 	<table class="table">
 		<thead>
 			<tr>
@@ -34,5 +35,4 @@
 		</tbody>
 	</table>
 
-	<a href="{{ path('pays_new') }}">Ajouter un pays</a>
 {% endblock %}

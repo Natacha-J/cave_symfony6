@@ -1,34 +1,56 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Vin{% endblock %}
+{% block title %}Vin
+{% endblock %}
 
 {% block body %}
-    <h1>Vin</h1>
+	<h1>Vin
+		{{vin.codevin }}</h1>
 
-    <table class="table">
-        <tbody>
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Code :
+				</th>
+				<td>{{ vin.codevin }}</td>
+			</tr>
+			<tr>
+				<th>Nom de la cuvée :
+				</th>
+				<td>{{ vin.nomCuvee }}</td>
+			</tr>
+			<tr>
+				<th>Appellation : </th>
+				<td>{{ vin.codeAppellation.nomAppellation }}</td>
+			</tr>
             <tr>
-                <th>Codevin</th>
-                <td>{{ vin.codevin }}</td>
+                <th>Région : </th>
+                <td>{{ vin.codeRegion.nomRegion }}</td>
             </tr>
             <tr>
-                <th>NomCuvee</th>
-                <td>{{ vin.nomCuvee }}</td>
+                <th>Couleur : </th>
+                <td>{{ vin.codeCouleur.nomCouleur }}</td>
             </tr>
+			<tr>
+				<th>Type de culture : </th>
+				<td>{{ vin.typeDeCulture }}</td>
+			</tr>
             <tr>
-                <th>TypeDeCulture</th>
-                <td>{{ vin.typeDeCulture }}</td>
+                <th>Cépages : </th>
+                <td>
+                {% for cepage in vin.codecepage %}
+                    {{ cepage.nomcepage }}
+                {% endfor %}
+                </td>
+                    
             </tr>
-            <tr>
-                <th>Commentaires</th>
-                <td>{{ vin.commentaires }}</td>
-            </tr>
-        </tbody>
-    </table>
+			<tr>
+				<th>Commentaires : </th>
+				<td>{{ vin.commentaires }}</td>
+			</tr>
+		</tbody>
+	</table>
 
-    <a href="{{ path('vin_index') }}">back to list</a>
+	<a href="{{ path('vin_index') }}">Retour</a>
 
-    <a href="{{ path('vin_edit', {'codevin': vin.codevin}) }}">edit</a>
-
-    {{ include('vin/_delete_form.html.twig') }}
 {% endblock %}

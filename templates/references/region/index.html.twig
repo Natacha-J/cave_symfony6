@@ -6,6 +6,7 @@
 {% block body %}
 	<h1>Liste des régions</h1>
 
+	<a href="{{ path('region_new') }}">Ajouter une région</a>
 	<table class="table">
 		<thead>
 			<tr>
@@ -37,5 +38,4 @@
 		</tbody>
 	</table>
 
-	<a href="{{ path('region_new') }}">Ajouter une région</a>
 {% endblock %}

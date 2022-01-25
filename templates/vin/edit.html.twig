@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Vin{% endblock %}
+{% block title %}Modification Vin{% endblock %}
 
 {% block body %}
-    <h1>Edit Vin</h1>
+    <h1>Modification du vin {{ vin.codevin }}</h1>
 
     {{ include('vin/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('vin_index') }}">back to list</a>
+    <a href="{{ path('vin_index') }}">Retour</a>
 
 {% endblock %}

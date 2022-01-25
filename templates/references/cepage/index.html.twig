@@ -6,6 +6,7 @@
 {% block body %}
 	<h1>Liste des cépages</h1>
 
+	<a href="{{ path('cepage_new') }}">Ajouter un cépage</a>
 	<table class="table">
 		<thead>
 			<tr>
@@ -34,5 +35,4 @@
 		</tbody>
 	</table>
 
-	<a href="{{ path('cepage_new') }}">Ajouter un cépage</a>
 {% endblock %}

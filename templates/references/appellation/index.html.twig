@@ -6,6 +6,7 @@
 {% block body %}
 	<h1>Listes des appellations</h1>
 
+	<a href="{{ path('appellation_new') }}">Ajouter une appellation</a>
 	<table class="table">
 		<thead>
 			<tr>
@@ -34,5 +35,4 @@
 		</tbody>
 	</table>
 
-	<a href="{{ path('appellation_new') }}">Ajouter une appellation</a>
 {% endblock %}
