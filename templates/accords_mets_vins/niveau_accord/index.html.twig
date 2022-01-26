@@ -1,35 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Niveau d'accord{% endblock %}
+{% block title %}Niveau d'accord
+{% endblock %}
 
 {% block body %}
-    <h1>Liste des niveaux d'accords</h1>
+	<h1>Liste des niveaux d'accords</h1>
 
-    <a href="{{ path('niveau_accord_new') }}">Ajouter un niveau d'accord</a>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Code</th>
-                <th>Libellé</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for niveau_accord in niveau_accords %}
-            <tr>
-                <td>{{ niveau_accord.idNiveauAccord }}</td>
-                <td>{{ niveau_accord.libelleNiveauAccord }}</td>
-                <td>
-                    <a href="{{ path('niveau_accord_edit', {'idNiveauAccord': niveau_accord.idNiveauAccord}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">Pas de résultats trouvé</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<a href="{{ path('niveau_accord_new') }}">Ajouter un niveau d'accord</a>
 
-<a href="{{ path('food_wine_pairings') }}">Retour</a>
+	<div>
+		<input id="search_input" type="text" placeholder="rechercher un niveau d'accord">
+		<button id="search_btn" type="button" onclick='searchItems()'>rechercher</button>
+		<button hidden id="clear_btn" type="button" onclick="searchClear()">Afficher tout</button>
+	</div>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Code</th>
+				<th>Libellé</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for niveau_accord in niveau_accords %}
+				<tr>
+					<td>{{ niveau_accord.idNiveauAccord }}</td>
+					<td>{{ niveau_accord.libelleNiveauAccord }}</td>
+					<td>
+						<a href="{{ path('niveau_accord_edit', {'idNiveauAccord': niveau_accord.idNiveauAccord}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="3">Pas de résultats trouvé</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('food_wine_pairings') }}">Retour</a>
+{% endblock %}
+
+{% block javascripts %}
+	<script src="{{ asset('js/searchBar.js') }}"></script>
 {% endblock %}

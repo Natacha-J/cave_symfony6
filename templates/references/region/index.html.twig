@@ -7,6 +7,13 @@
 	<h1>Liste des régions</h1>
 
 	<a href="{{ path('region_new') }}">Ajouter une région</a>
+
+	<div>
+		<input id="search_input" type="text" placeholder="rechercher une région">
+		<button id="search_btn" type="button" onclick='searchItems()'>rechercher</button>
+		<button hidden id="clear_btn" type="button" onclick="searchClear()">Afficher tout</button>
+	</div>
+
 	<table class="table">
 		<thead>
 			<tr>
@@ -23,7 +30,9 @@
 					<td>{{ region.nomregion }}</td>
 					<td>{{ region.codepays.nompays }}</td>
 					<td>
-						<a href="{{ path('region_edit', {'coderegion': region.coderegion}) }}"><i class="fas fa-pen"></i></a>
+						<a href="{{ path('region_edit', {'coderegion': region.coderegion}) }}">
+							<i class="fas fa-pen"></i>
+						</a>
 					</td>
 					<td>
 						{{ include('references/region/_delete_form.html.twig') }}
@@ -38,4 +47,8 @@
 		</tbody>
 	</table>
 
+{% endblock %}
+
+{% block javascripts %}
+	<script src="{{ asset('js/searchBar.js') }}"></script>
 {% endblock %}

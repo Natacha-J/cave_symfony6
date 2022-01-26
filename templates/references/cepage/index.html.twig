@@ -7,6 +7,13 @@
 	<h1>Liste des cépages</h1>
 
 	<a href="{{ path('cepage_new') }}">Ajouter un cépage</a>
+
+	<div>
+		<input id="search_input" type="text" placeholder="rechercher un cépage">
+		<button id="search_btn" type="button" onclick='searchItems()'>rechercher</button>
+		<button hidden id="clear_btn" type="button" onclick="searchClear()">Afficher tout</button>
+	</div>
+
 	<table class="table">
 		<thead>
 			<tr>
@@ -21,7 +28,9 @@
 					<td>{{ cepage.codecepage }}</td>
 					<td>{{ cepage.nomcepage }}</td>
 					<td>
-						<a href="{{ path('cepage_edit', {'codecepage': cepage.codecepage}) }}"><i class="fas fa-pen"></i></a>
+						<a href="{{ path('cepage_edit', {'codecepage': cepage.codecepage}) }}">
+							<i class="fas fa-pen"></i>
+						</a>
 					</td>
 					<td>
 						{{ include('references/cepage/_delete_form.html.twig') }}
@@ -35,4 +44,8 @@
 		</tbody>
 	</table>
 
+{% endblock %}
+
+{% block javascripts %}
+	<script src="{{ asset('js/searchBar.js') }}"></script>
 {% endblock %}

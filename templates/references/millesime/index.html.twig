@@ -7,6 +7,13 @@
 	<h1>Liste des millésimes</h1>
 
 	<a href="{{ path('millesime_new') }}">Ajouter un millésime</a>
+
+	<div>
+		<input id="search_input" type="text" placeholder="rechercher un millésime">
+		<button id="search_btn" type="button" onclick='searchItems()'>rechercher</button>
+		<button hidden id="clear_btn" type="button" onclick="searchClear()">Afficher tout</button>
+	</div>
+
 	<table class="table">
 		<thead>
 			<tr>
@@ -21,9 +28,11 @@
 					<td>{{ millesime.codemillesime }}</td>
 					<td>{{ millesime.millesime }}</td>
 					<td>
-						<a href="{{ path('millesime_edit', {'codemillesime': millesime.codemillesime}) }}"><i class="fas fa-pen"></i></a>
+						<a href="{{ path('millesime_edit', {'codemillesime': millesime.codemillesime}) }}">
+							<i class="fas fa-pen"></i>
+						</a>
 					</td>
-					<td>	
+					<td>
 						{{ include('references/millesime/_delete_form.html.twig') }}
 					</td>
 
@@ -37,3 +46,8 @@
 	</table>
 
 {% endblock %}
+
+{% block javascripts %}
+	<script src="{{ asset('js/searchBar.js') }}"></script>
+{% endblock %}
+

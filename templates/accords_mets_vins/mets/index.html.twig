@@ -1,37 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mets{% endblock %}
+{% block title %}Mets
+{% endblock %}
 
 {% block body %}
-    <h1>Liste des mets</h1>
+	<h1>Liste des mets</h1>
 
-    <a href="{{ path('mets_new') }}">Ajouter un mets</a>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Code</th>
-                <th>Nom</th>
-                <th>Lien recette</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for met in mets %}
-            <tr>
-                <td>{{ met.codemets }}</td>
-                <td>{{ met.nom }}</td>
-                <td>{{ met.lienRecette }}</td>
-                <td>
-                    <a href="{{ path('mets_show', {'codemets': met.codemets}) }}">show</a>
-                    <a href="{{ path('mets_edit', {'codemets': met.codemets}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">Pas de résultats trouvés</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-<a href="{{ path('food_wine_pairings') }}">Retour</a>
+	<a href="{{ path('mets_new') }}">Ajouter un mets</a>
+
+	<div>
+		<input id="search_input" type="text" placeholder="rechercher un mets">
+		<button id="search_btn" type="button" onclick='searchItems()'>rechercher</button>
+		<button hidden id="clear_btn" type="button" onclick="searchClear()">Afficher tout</button>
+	</div>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Code</th>
+				<th>Nom</th>
+				<th>Lien recette</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for met in mets %}
+				<tr>
+					<td>{{ met.codemets }}</td>
+					<td>{{ met.nom }}</td>
+					<td>{{ met.lienRecette }}</td>
+					<td>
+						<a href="{{ path('mets_show', {'codemets': met.codemets}) }}">show</a>
+						<a href="{{ path('mets_edit', {'codemets': met.codemets}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="4">Pas de résultats trouvés</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<a href="{{ path('food_wine_pairings') }}">Retour</a>
 {% endblock %}
+
+{% block javascripts %}
+	<script src="{{ asset('js/searchBar.js') }}"></script>
+{% endblock %}
+

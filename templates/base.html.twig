@@ -6,31 +6,32 @@
 			{% block title %}{% endblock %}
 		</title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"> {% block stylesheets %}{% endblock %}
-		<link rel="stylesheet" href="{{ asset('css/style.css') }}"> 
-		{% block javascripts %}{% endblock %}		
-		</head>
-		<body>
-			<div class="container">
-				<nav>
-					<a class="home" href="{{ path('home') }}"><img src="{{ asset('img/wineBottle.jpg') }}" alt="" width=40 ></a>
-					<a href="{{ path('vin_index') }}">Les vins</a><br>
-					<a class="headMenu" href="{{ path('references') }}">Les références</a>
-					<div class="subMenu">
-						<a href="{{ path('appellation_index') }}">Appellation</a>
-						<a href="{{ path('cepage_index') }}">Cepage</a>
-						<a href="{{ path('couleur_index') }}">Couleur</a>
-						<a href="{{ path('millesime_index') }}">Millesime</a>
-						<a href="{{ path('pays_index') }}">Pays</a>
-						<a href="{{ path('region_index') }}">Région</a>
-					</div>
-					<a href="{{ path('food_wine_pairings') }}">Les accords mets/vins</a>
-					<a href="{{ path('inventory') }}">Les stocks</a>
-				</nav>
-				<div class="content"> {% block body %}{% endblock %}
-					</div>
-					{% if app.user %}
-						<a href="{{ path('app_logout') }}">Déconnexion</a>
-					{% endif %}
+		<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+	</head>
+	<body>
+		<div class="container">
+			<nav>
+				<a class="home" href="{{ path('home') }}"><img src="{{ asset('img/wineBottle.jpg') }}" alt="" width="40"></a>
+				<a href="{{ path('vin_index') }}">Les vins</a><br>
+				<a class="headMenu" href="{{ path('references') }}">Les références</a>
+				<div class="subMenu">
+					<a href="{{ path('appellation_index') }}">Appellation</a>
+					<a href="{{ path('cepage_index') }}">Cepage</a>
+					<a href="{{ path('couleur_index') }}">Couleur</a>
+					<a href="{{ path('millesime_index') }}">Millesime</a>
+					<a href="{{ path('pays_index') }}">Pays</a>
+					<a href="{{ path('region_index') }}">Région</a>
 				</div>
-			</body>
-		</html>
+				<a href="{{ path('food_wine_pairings') }}">Les accords mets/vins</a>
+				<a href="{{ path('inventory') }}">Les stocks</a>
+			</nav>
+			<div class="content"> {% block body %}{% endblock %}
+				</div>
+				{% if app.user %}
+					<a href="{{ path('app_logout') }}">Déconnexion</a>
+				{% endif %}
+			</div>
+			<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+			{% block javascripts %}{% endblock %}
+		</body>
+	</html>

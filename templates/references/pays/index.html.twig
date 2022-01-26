@@ -7,6 +7,13 @@
 	<h1>Liste des pays</h1>
 
 	<a href="{{ path('pays_new') }}">Ajouter un pays</a>
+
+	<div>
+		<input id="search_input" type="text" placeholder="rechercher un pays">
+		<button id="search_btn" type="button" onclick='searchItems()'>rechercher</button>
+		<button hidden id="clear_btn" type="button" onclick="searchClear()">Afficher tout</button>
+	</div>
+
 	<table class="table">
 		<thead>
 			<tr>
@@ -21,9 +28,11 @@
 					<td>{{ pays.codepays }}</td>
 					<td>{{ pays.nompays }}</td>
 					<td>
-						<a href="{{ path('pays_edit', {'codepays': pays.codepays}) }}"><i class="fas fa-pen"></i></a>
+						<a href="{{ path('pays_edit', {'codepays': pays.codepays}) }}">
+							<i class="fas fa-pen"></i>
+						</a>
 					</td>
-					<td>	
+					<td>
 						{{ include('references/pays/_delete_form.html.twig') }}
 					</td>
 				</tr>
@@ -36,3 +45,8 @@
 	</table>
 
 {% endblock %}
+
+{% block javascripts %}
+	<script src="{{ asset('js/searchBar.js') }}"></script>
+{% endblock %}
+
