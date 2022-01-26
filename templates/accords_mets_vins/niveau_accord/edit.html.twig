@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification Niveau d'accord{% endblock %}
+
+{% block body %}
+    <h1>Modification niveau d'accord {{ niveauaccord.codeniveauaccord }}</h1>
+
+    {{ include('niveau_accord/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('niveau_accord_index') }}">Retour</a>
+{% endblock %}

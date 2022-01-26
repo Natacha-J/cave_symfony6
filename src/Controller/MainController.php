@@ -44,7 +44,6 @@ class MainController extends AbstractController
         if (!$user) {
             return $this->redirectToRoute('app_login');
         } else {
-
             return $this->render('main/food_wine_pairings.html.twig', [
                 'controller_name' => 'MainController',
             ]);

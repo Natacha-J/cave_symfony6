@@ -1,9 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Page des accords mets et vins!{% endblock %}
+{% block title %}Accords mets et vins{% endblock %}
 
 {% block body %}
 
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Gestion des accords mets et vins</h1>
+    <a href="#">Recherche par vins</a><br>
+    <a href="#">Recherche par mets</a><br>
+    <a href="{{ path('mets_index') }}">Gestion des mets</a><br>
+    <a href="{{ path('niveau_accord_index') }}">Gestion des niveau d'accords</a>
+
 
 {% endblock %}

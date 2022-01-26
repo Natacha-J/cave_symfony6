@@ -1,16 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mets index{% endblock %}
+{% block title %}Mets{% endblock %}
 
 {% block body %}
-    <h1>Mets index</h1>
+    <h1>Liste des mets</h1>
 
+    <a href="{{ path('mets_new') }}">Ajouter un mets</a>
     <table class="table">
         <thead>
             <tr>
-                <th>Codemets</th>
+                <th>Code</th>
                 <th>Nom</th>
-                <th>LienRecette</th>
+                <th>Lien recette</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -27,11 +28,10 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Pas de résultats trouvés</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('mets_new') }}">Create new</a>
+<a href="{{ path('food_wine_pairings') }}">Retour</a>
 {% endblock %}

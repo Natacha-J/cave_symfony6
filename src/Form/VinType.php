@@ -25,7 +25,9 @@ class VinType extends AbstractType
         $builder
             ->add('nomCuvee', TextType::class, [
                 'label' => 'Nom de la cuvée : ',
-                'attr' => ['maxlength' => 150]
+                'attr' => ['maxlength' => 150, 
+                            'class' => 'form-control']
+
             ])
             ->add('codeappellation', EntityType::class, [
                 'class' => Appellation::class,
@@ -52,6 +54,7 @@ class VinType extends AbstractType
                 'choice_label' => 'nomcepage',
                 'multiple' => true,
                 'expanded' => true,
+                'attr' => ['class' => 'checkboxCepage']
             ])
             ->add('commentaires', TextareaType::class, [
                 'label' => 'Commentaires',

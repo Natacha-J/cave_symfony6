@@ -6,12 +6,13 @@
 			{% block title %}{% endblock %}
 		</title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"> {% block stylesheets %}{% endblock %}
-		<link rel="stylesheet" href="{{ asset('css/style.css') }}"> {% block javascripts %}{% endblock %}
+		<link rel="stylesheet" href="{{ asset('css/style.css') }}"> 
+		{% block javascripts %}{% endblock %}		
 		</head>
 		<body>
 			<div class="container">
 				<nav>
-					<a class="home" href="{{ path('home') }}">HOME</a>
+					<a class="home" href="{{ path('home') }}"><img src="{{ asset('img/wineBottle.jpg') }}" alt="" width=40 ></a>
 					<a href="{{ path('vin_index') }}">Les vins</a><br>
 					<a class="headMenu" href="{{ path('references') }}">Les références</a>
 					<div class="subMenu">
